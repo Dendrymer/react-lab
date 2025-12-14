@@ -32,10 +32,15 @@ function App() {
         <div className="container">
             <h1>My favourite movies to watch</h1>
             <h2>Titles</h2>
-            <h2>Add Movie</h2>
-            <ul>
+             <ul>
             {movies.map((movie) => <li key={movie.title}>{movie.title}</li>)}
             </ul>
+            <h2>Add Movie</h2>
+            <div><b>Tytuł</b></div>
+            <input type= "text" />
+            <div><b>Rok nagrania</b></div>
+            <input type= "text" />
+           
             <h2>My favourite movie for today is {title}</h2>
             { title.length > 0 && <div> {message} </div> }
             <input type="text" value={title} onChange={handleChange}/>
