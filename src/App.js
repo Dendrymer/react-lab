@@ -1,9 +1,11 @@
 
 import './App.css';
 import {useState} from "react";
+import "milligram";
 
 function App() {
     const [title, setTitle] = useState('Wall-E');
+    
 
     const movies = [
     {title: "Wall-E"},
@@ -16,27 +18,26 @@ function App() {
         setTitle(event.target.value);
     }
 
-    let message; 
-  if (title.length < 4) {
+    let message = ''; 
+    if (title.length < 4) {
     message = "Sprawdź czy tytuł jest za krótki";
-  }
-    else if (title.length < 15) {
+    } else if (title.length < 15) {
     message = "Tytuł jest super";
-  }
-  else {
+    } else {
     message = "Tytuł jest za długi, nikt go nie zapamięta"; 
-  }
-
+    }
 
 
     return (
-        <div>
+        <div className="container">
             <h1>My favourite movies to watch</h1>
+            <h2>Titles</h2>
+            <h2>Add Movie</h2>
             <ul>
             {movies.map((movie) => <li key={movie.title}>{movie.title}</li>)}
             </ul>
             <h2>My favourite movie for today is {title}</h2>
-            <p>{message}</p>
+            { title.length > 0 && <div> {message} </div> }
             <input type="text" value={title} onChange={handleChange}/>
             <button type="button" onClick={() => alert(title)}>
     Pokaż tytuł filmu
